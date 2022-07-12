@@ -4,28 +4,17 @@ import Mask1 from '../../image_mask_1.png';
 
 import { Navbar, Container, Nav, Image, NavDropdown } from 'react-bootstrap';
 
+import './TopNavbar.scss';
 const TopNavBar = () => {
   return (
     <>
-      <Navbar fixed="top" collapseOnSelect expand="lg"
-          style={{
-            backgroundColor: "#CD36A3",
-          }}>
+      <Navbar
+        style={{
+          backgroundColor: "#CD36A3",
+        }}>
         <Container fluid>
           <Navbar.Brand 
-            className="p-3"
-            href="#home"
-            style={{
-              backgroundColor: "white",
-              width: "179px",
-              height: "74px",
-              borderRadius: "4px",
-              position: "absolute",
-              left: "1.25%",
-              right: "86.32%",
-              top: "15%",
-              bottom: "0%"
-            }}>
+            className="p-3 bg-white project-refocus-logo">
               <Image 
                 src={ Logo }
                 alt="project-refocus-logo" />
@@ -35,13 +24,14 @@ const TopNavBar = () => {
             <Nav className="me-auto">
             </Nav>
             <Nav>
-              <NavDropdown title="Jayrick Gacayan" id="collasible-nav-dropdown">
-                <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-              </NavDropdown>
+              <Nav.Item>
+                <span className="d-inline-block text-white">Jayrick Gacayan</span>
+                <NavDropdown id="basic-nav-dropdown" 
+                  align="end"
+                  className="d-inline-block text-white">
+                  <NavDropdown.Item>Logout</NavDropdown.Item>
+                </NavDropdown>
+              </Nav.Item>
             </Nav>
           </Navbar.Collapse>
         </Container>
