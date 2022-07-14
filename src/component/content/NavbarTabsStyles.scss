@@ -1,12 +1,30 @@
-.nav-tabs{
-  margin-left: 12px;
-  
-  .nav-link {
-    background-color: #fff;
-    color: "#DFE6E9"
+@import '../../CustomVariables.scss';
+
+#tabNavigation{
+  .nav-tabs{
+    margin-left: 12px;
+    position: absolute;
+    top: -36px;
+    z-index: 1070;
+    
+    .nav-link {
+      background-color: $custom-white;
+      color: $custom-black-1;
+      font-family: $fontOpenSans;
+      font-size: $fontSize14;
+      line-height: 19px;
+      font-style: normal;
+    }
+    
+    .nav-item{
+      margin-left: 4px;
+      border-radius: 4px 4px 0px 0px;
+    }
   }
-  .nav-link.active,
-  .nav-item{
-    margin-left: 4px
-  }
+}
+
+#sidebar-container{
+  background-color: $custom-grey-4;
+  border-radius: 4px;
+  border: 1px solid $custom-grey-3;
 }

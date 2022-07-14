@@ -1,12 +1,13 @@
 import React from 'react';
 import { Form } from 'react-bootstrap'
-import { Plus, Dash } from 'react-bootstrap-icons';
+import { PlusLg, DashLg } from 'react-bootstrap-icons';
+
+import '../customStyles.scss';
 
 const CollapseToggle = ({ handleCollapseToggle, showCollapse, type, label }) => {
   return(
     <div 
       onClick={ () => handleCollapseToggle(type) }
-      aria-controls="example-collapse-text"
       aria-expanded={ showCollapse }
       className="d-flex justify-content-between align-items-center">
       <Form.Check 
@@ -14,8 +15,13 @@ const CollapseToggle = ({ handleCollapseToggle, showCollapse, type, label }) => 
         label={ label }
         onChange={ () => handleCollapseToggle(type) }
         checked={ showCollapse }
+        className={ showCollapse ? `text-blue-3` : ``}
       />
-      { showCollapse ? <Dash className="f-4" /> : <Plus className="f-4" /> }
+      { 
+        showCollapse ? 
+        <DashLg className="icon-style-1" /> : 
+        <PlusLg className="icon-style-1" /> 
+      }
   </div>
   );
     

@@ -1,0 +1,27 @@
+@import '../CustomVariables.scss';
+
+label.form-label{
+  font-family: $fontOpenSans;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+  color: $custom-black-1;
+}
+
+.text-blue-3{
+  color: $custom-blue-3;
+}
+
+.icon-style-1{
+  width: 20px;
+  height: 20px; 
+  color: $custom-grey-1; 
+}
+
+.form-check{
+  .form-check-label{
+    vertical-align: middle;
+    padding-left: 0.5rem;
+  }
+}

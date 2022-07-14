@@ -9,40 +9,36 @@ const TopNavBar = () => {
   return (
     <>
       <Navbar
-        style={{
-          backgroundColor: "#CD36A3",
-        }}>
+        id="topNavbar">
         <Container fluid>
-          <Navbar.Brand 
-            className="p-3 bg-white project-refocus-logo">
-              <Image 
+          <div className="logo-container">
+            <Image 
                 src={ Logo }
-                alt="project-refocus-logo" />
-          </Navbar.Brand>
+                alt="project-refocus-logo"
+                className="project-refocus-logo" />
+          </div>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
             </Nav>
             <Nav>
               <Nav.Item>
-                <span className="d-inline-block text-white">Jayrick Gacayan</span>
-                <NavDropdown id="basic-nav-dropdown" 
-                  align="end"
-                  className="d-inline-block text-white">
-                  <NavDropdown.Item>Logout</NavDropdown.Item>
-                </NavDropdown>
+                <span 
+                  id="account-log-name"
+                  className="d-inline-block text-white">Jayrick Gacayan</span>
+                
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <div className="banner-mask">
+      <div className="banner-mask-container">
         <Image 
           src={ Mask1 }
           alt="mask-pic-one"
           style={{
             width: "100%",
-            height: "150px"
+            height: "100%"
           }}
         />
       </div>

@@ -1,18 +1,46 @@
 import React from 'react';
 import { Form, Collapse } from 'react-bootstrap';
 
+import '../customStyles.scss';
+
+
+const dataOrientation = [
+  {
+    value: "dailyPer100k",
+    text: "Daily per 100,000"
+  },
+  {
+    value: "weeklyPer100k",
+    text: "Weekly per 100,000"
+  },
+  {
+    value: "monthlyPer1M",
+    text: "Monthly per 1,000,000"
+  }
+];
+
 const CollapseContent = ({ showCollapse }) => {
   return (
     <Collapse in={ showCollapse }>
-      <div id="example-collapse-text">
+      <div className="mt-3">
         <Form.Group className="mb-1">
           <Form.Label>
-            Data Orientation:
+            Data Orientation
           </Form.Label>
           <Form.Select>
-            <option value="dailyPer100" >Daily per 100,000</option>
-            <option value="1">Weekly per 100,000</option>
-            <option value="2">Monthly per 1,000,000</option>
+            {
+              dataOrientation.map(
+                (dataOrient) => {
+                  return (
+                    <option 
+                      key={ dataOrient.value } 
+                      value={ dataOrient.value }>
+                      { dataOrient.text }
+                    </option>
+                  );
+                }
+              )
+            }
           </Form.Select>
         </Form.Group>
         <Form.Group className="mb-1">

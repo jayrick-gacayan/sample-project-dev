@@ -9,31 +9,31 @@ const ListGroupOptions = [
   {
     key: "Cases",
     label: "Cases",
-    classBorderLeft: "border-left-hotPink",
+    borderLeftColor: "hotPink",
     showCollapse: false,
   },
   {
     key: "Deaths",
     label: "Deaths",
-    classBorderLeft: "border-left-purple",
+    borderLeftColor: "purple",
     showCollapse: false,
   },
   {
     key: "Tests",
     label: "Tests",
-    classBorderLeft: "border-left-purple",
+    borderLeftColor: "yellow",
     showCollapse: false
   },
   {
     key: "Vaccinations",
     label: "Vaccinations",
-    classBorderLeft: "border-left-green",
+    borderLeftColor: "green-1",
     showCollapse: false
   },
   {
     key: "Police Shootings",
     label: "Police Shootings",
-    classBorderLeft: "border-left-green-1",
+    borderLeftColor: "green-2",
     showCollapse: false
   },
   {
@@ -44,32 +44,50 @@ const ListGroupOptions = [
         <span className="d-block f-6">(1 year estimates)</span>
       </div>
     ),
-    classBorderLeft: "border-left-orange",
+    borderLeftColor: "orange",
     showCollapse: false
   }
 ];
 
-const Sidebar = ({ handleMesageText }) => {
+const Sidebar = ({ setCategories, maxCategory }) => {
+  
   const [ listOptions, setListOptions ] = useState(ListGroupOptions);
 
   const handleCollapseToggle = (type) => {
-    setListOptions(
-      listOptions.map(
-        (listItem) => {
-          const showCollapse = listItem.showCollapse;
+    if(maxCategory){
+      setListOptions(
+        listOptions.map(
+          (listItem) => {
+            const showCollapse = !listItem.showCollapse;
 
-          if(listItem.key === type)
-            return ({ ...listItem, showCollapse: !listItem.showCollapse })
-          
-          return listItem;
-        }
+            if(listItem.key === type)
+            {
+              setCategories(
+                (categories) => {
+                  return showCollapse ? 
+                  [ ...categories, type ] :
+                  categories.filter((category) => { return category !== type })
+                }
+                
+              )
+            
+              return ({ ...listItem, showCollapse: !listItem.showCollapse })
+            }
+            return listItem;
+          }
+        )
       )
-    )
+    }
+    else{
+      alert("Hello World");
+    } 
   };
-
+  console.log("Categories length", maxCategory);
   return(
-    <ListGroup>
-      <ListGroup.Item variant="secondary">
+    <ListGroup
+      id="sidebarNavigation">
+      <ListGroup.Item 
+        className="category-info-select-max-list-group-item">
         Select max. 2 categories
       </ListGroup.Item>
       {
@@ -78,7 +96,7 @@ const Sidebar = ({ handleMesageText }) => {
             return(
               <ListGroup.Item key={ listGroupItem.key }
                 variant={ listGroupItem.showCollapse ? `light` : `secondary` }
-                className={ listGroupItem.classBorderLeft }>
+                className={ `${ listGroupItem.showCollapse ? `border-left-${ listGroupItem.borderLeftColor }` : `` }` }>
                 <CollapseToggle 
                   handleCollapseToggle={ handleCollapseToggle }
                   showCollapse={ listGroupItem.showCollapse }
