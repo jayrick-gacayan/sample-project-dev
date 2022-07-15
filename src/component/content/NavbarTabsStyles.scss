@@ -2,11 +2,22 @@
 
 #tabNavigation{
   .nav-tabs{
-    margin-left: 12px;
     position: absolute;
     top: -36px;
     z-index: 1070;
-    
+
+    @media (min-width: 576px){
+      margin-left: -12px;
+    }
+
+    @media (min-width: 768px){
+      margin-left: -12px;
+    }
+
+    @media (min-width: 992px){
+      margin-left: 12px;
+    }
+
     .nav-link {
       background-color: $custom-white;
       color: $custom-black-1;
@@ -17,7 +28,7 @@
     }
     
     .nav-item{
-      margin-left: 4px;
+      margin-right: 4px;
       border-radius: 4px 4px 0px 0px;
     }
   }

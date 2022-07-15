@@ -36,6 +36,19 @@
   position: relative;
 }
 
+.banner-mask-overlay{
+  position: absolute;
+  z-index: 1050;
+  top: 0;
+  opacity: 0.4;
+  height: 100%;
+  width: 100%;
+  background-color: $custom-grey-3;
+  border: 1px solid $custom-grey-3;
+
+  mix-blend-mode: normal;
+}
+
 #account-log-name{
   font-family: $fontLato;
   font-style: normal;

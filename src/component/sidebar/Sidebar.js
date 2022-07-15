@@ -41,7 +41,11 @@ const ListGroupOptions = [
     label: ( 
       <div className="d-inline-block">
         <span className="d-block">Population estimates</span>
-        <span className="d-block f-6">(1 year estimates)</span>
+        <span 
+          className="d-block" 
+          style={{
+            fontSize: "14px"
+          }}>( 1 year estimates )</span>
       </div>
     ),
     borderLeftColor: "orange",
@@ -49,12 +53,14 @@ const ListGroupOptions = [
   }
 ];
 
-const Sidebar = ({ setCategories, maxCategory }) => {
+const Sidebar = ({ setCategories, categories }) => {
   
   const [ listOptions, setListOptions ] = useState(ListGroupOptions);
 
   const handleCollapseToggle = (type) => {
-    if(maxCategory){
+
+    if((categories.length === 2 && categories.includes(type)) || 
+      categories.length < 2){
       setListOptions(
         listOptions.map(
           (listItem) => {
@@ -73,16 +79,15 @@ const Sidebar = ({ setCategories, maxCategory }) => {
             
               return ({ ...listItem, showCollapse: !listItem.showCollapse })
             }
+            
             return listItem;
           }
         )
       )
     }
-    else{
-      alert("Hello World");
-    } 
+    else alert("Over the limit");
   };
-  console.log("Categories length", maxCategory);
+  
   return(
     <ListGroup
       id="sidebarNavigation">
