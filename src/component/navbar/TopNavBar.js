@@ -11,6 +11,7 @@ const imageToMaskStyles = {
   width: "100%",
   height: "100%"
 }
+
 const TopNavBar = () => {
   return (
     <>
@@ -19,9 +20,9 @@ const TopNavBar = () => {
         <Container fluid>
           <div className="logo-container">
             <Image 
-                src={ Logo }
-                alt="project-refocus-logo"
-                className="project-refocus-logo" />
+              src={ Logo }
+              alt="project-refocus-logo"
+              className="project-refocus-logo" />
           </div>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
@@ -40,6 +41,8 @@ const TopNavBar = () => {
       </Navbar>
       <div className="banner-mask-container">
         <div className="row g-0 w-100 h-100">
+
+          {/* Image to overlay */}
           <div className="col-9 h-100">
             <Image 
               src={ Mask1 }
@@ -56,6 +59,7 @@ const TopNavBar = () => {
           </div>
         </div>
         
+        {/* overlay mask */}
         <div className="banner-mask-overlay"></div>
       </div>
     </>
